@@ -682,6 +682,22 @@ case x do
 end
 ")
 
+(elixir-def-indentation-test indent-no-indent-after-binaries ()
+"defmodule M do
+  def f do
+    a = <<1>>
+      b = <<2>>
+  end
+end"
+
+"defmodule M do
+  def f do
+    a = <<1>>
+    b = <<2>>
+  end
+end"
+)
+
 (elixir-def-indentation-test indent-after-require-Record
     ()
   ;; Mind the significant whitespace after `Record' in each case. There should
